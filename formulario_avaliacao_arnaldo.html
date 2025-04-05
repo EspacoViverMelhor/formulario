@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário Avaliação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      margin: 0;
+      background-color: #fff;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    .lateral-esquerda {
+      width: 80px;
+      background: black;
+      color: white;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-radius: 20px 0 0 20px;
+    }
+
+    .silhueta {
+      background-color: black;
+      width: 55px;
+      height: 150px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .formulario {
+      background: white;
+      padding: 14px;
+      flex-grow: 1;
+      border: 4px solid black;
+      border-left: none;
+      border-radius: 0 20px 20px 0;
+    }
+
+    .cabecalho .logo {
+      width: 85px;
+      height: 85px;
+      float: right;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .cabecalho .logo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .campos-topo {
+      font-size: 14px;
+      color: #800000;
+    }
+
+    .linha {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 5px 0;
+    }
+
+    .input {
+      border: none;
+      border-bottom: 1px solid #aaa;
+      background: none;
+      padding: 3px 5px;
+      font-size: 14px;
+      min-width: 100px;
+    }
+
+    .avaliacoes h3,
+    .resultado h3 {
+      color: #800000;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .avaliacoes {
+      margin-bottom: 10px;
+    }
+
+    .avaliacoes ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .avaliacoes li {
+      background: #ddd;
+      padding: 6px 8px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .avaliacoes input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+    }
+
+    .titulo-com-imagem {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .icone-anatomia {
+      width: 20px;
+      height: auto;
+    }
+
+    .resultado-box {
+      width: 98%;
+      background: #eee;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      height: 150px;
+      resize: none;
+      margin-top: 10px;
+    }
+
+    .rodape-fixo {
+      text-align: center;
+      background: black;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 15px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .botoes {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    .botoes button {
+      background: #800000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media print {
+      .botoes {
+        display: none;
+      }
+
+      input, textarea {
+        border: none;
+        background: transparent;
+        color: black;
+      }
+
+      .avaliacoes input[type="checkbox"] {
+        display: none;
+      }
+
+      .avaliacoes li.checked::after {
+        content: "✓";
+        font-weight: bold;
+        color: green;
+        font-size: 16px;
+        margin-left: 10px;
+      }
+
+      .lateral-esquerda,
+      .rodape-fixo {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background: black !important;
+        color: white !important;
+      }
+
+      .silhueta {
+        background-color: black !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 8mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <aside class="lateral-esquerda">
+    <h2>ARNALDO SERVIÇOS TERAPÊUTICOS LTDA.</h2>
+    <div class="silhueta"></div>
+  </aside>
+
+  <main class="formulario">
+    <header class="cabecalho">
+      <div class="logo">
+        <img src="logo.png" alt="Logo da empresa" />
+      </div>
+      <div class="campos-topo">
+        <div><strong>Nome:</strong> <input class="input" /></div>
+        <div class="linha">
+          <span><strong>Data de Nascimento:</strong> <input class="input" /></span>
+          <span><strong>Idade:</strong> <input class="input" /></span>
+          <span><strong>Contato:</strong> <input class="input" /></span>
+        </div>
+        <div class="linha">
+          <span><strong>Resultado de Avaliação Emitido em:</strong> <input class="input" /></span>
+          <span><strong>Medicamentos:</strong> <input class="input" /></span>
+        </div>
+        <div><strong>Endereço:</strong> <input class="input" style="width: 80%;" /></div>
+        <div class="linha">
+          <span><strong>Data de Atendimento:</strong> <input class="input" /></span>
+          <span><strong>Hora do Atendimento:</strong> <input class="input" /></span>
+          <span><strong>Duração do Atendimento:</strong> <input class="input" /></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="avaliacoes">
+      <div class="titulo-com-imagem">
+        <img src="grafico.png" alt="grafico" class="icone-anatomia">
+        <h3>Avaliações Realizadas</h3>
+      </div>
+      <ul>
+        <li><span>CHECK UP QUÂNTICO EMOCIONAL AVANÇADO</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>AVALIAÇÃO RDK</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>ESTIMULAÇÃO TRANSCUTÂNEA NÃO INVASIVA DO NERVO VAGO</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>ESTIMULAÇÃO TRANSCUTÂNEA NÃO INVASIVA DO NERVO TRIGÊMEO</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>BIOFEEDBACK HRV</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>NEUROFEEDBACK</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>PSICANÁLISE</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+        <li><span>POLISSONOGRAFIA DE NOITE INTEIRA</span> <input type="checkbox" onchange="toggleChecked(this)"></li>
+      </ul>
+    </section>
+
+    <section class="resultado">
+      <div class="titulo-com-imagem">
+        <img src="anatomy.png" alt="Corpo humano" class="icone-anatomia">
+        <h3>Resultado da Avaliação</h3>
+      </div>
+      <textarea class="resultado-box" placeholder="Descreva o resultado aqui..."></textarea>
+      <div class="rodape-fixo">
+        CNPJ: 47.927.484/0001-82
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="botoes">
+  <button onclick="window.print()">Salvar para Imprimir</button>
+</div>
+
+<script>
+  function toggleChecked(checkbox) {
+    const li = checkbox.closest("li");
+    if (checkbox.checked) {
+      li.classList.add("checked");
+    } else {
+      li.classList.remove("checked");
+    }
+  }
+</script>
+
+</body>
+</html>
